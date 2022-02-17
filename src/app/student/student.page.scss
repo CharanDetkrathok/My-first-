@@ -1,17 +1,49 @@
+$_border-color-red: 2px solid rgb(255, 0, 0);
+$_border-color-gray: 2px solid rgb(61, 61, 61);
+$_line-height-1: 1;
+@mixin border-radius($pixel) {
+    border-radius: $pixel;
+    -webkit-border-radius: $pixel;
+    -moz-border-radius: $pixel;
+    -ms-border-radius: $pixel;
+    -o-border-radius: $pixel;
+}
+
 * {
     padding: 10;
     margin: 0;
 }
 
+ion-card-header {
+    width: 100vw;
+    height: 100vh;
+}
+
 ion-row {
-    line-height: 1;
+    line-height: $_line-height-1;
     font-size: 1rem;
 }
 
 ion-card {
-    border: 3px solid rgb(255, 0, 0);
+    @include border-radius(0);
+    border: $_border-color-red;
 }
 
 #profile-tag {
     padding: 5px;
+}
+
+#lists-something {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    ion-list {
+        list-style: none;
+        ion-item {
+            @include border-radius(50px);
+            border: $_border-color-gray;
+            margin-bottom: 5px;
+        }
+    }
 }
